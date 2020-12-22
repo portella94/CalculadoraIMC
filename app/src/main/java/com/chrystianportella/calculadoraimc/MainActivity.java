@@ -151,13 +151,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void renderChart() {
-        BarChart chart = findViewById(R.id.chart);
+        LineChart chart = findViewById(R.id.chart);
         Banco banco = new Banco(this);
         //XAxis xAxis = chart.getXAxis();
         ArrayList<IMC> history = banco.getAll();
         //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         //String[] dias = new String[history.size()];
-        List<BarEntry> list = new ArrayList<>();
+        List<Entry> list = new ArrayList<>();
         if (history.size() > 0) {
             for (int i = 0; i < history.size(); i++) {
                 IMC imc = history.get(i);
@@ -165,15 +165,15 @@ public class MainActivity extends AppCompatActivity {
                 //dias[i] = s;
                 list.add(new BarEntry(
                         imc.Data.get(Calendar.DAY_OF_MONTH),
-                        (float) history.get(i).IMC()
+                        history.get(i).IMC()
                 ));
             }
             //xAxis.setValueFormatter(new IndexAxisValueFormatter(dias));
-            BarDataSet cjd = new BarDataSet(list, "IMC");
+            LineDataSet cjd = new LineDataSet(list, "IMC");
             cjd.setColor(Color.RED);
-            BarData barData = new BarData();
-            barData.addDataSet(cjd);
-            chart.setData(barData);
+            LineData data = new LineData();
+            data.addDataSet(cjd);
+            chart.setData(data);
         }
 
         chart.invalidate();

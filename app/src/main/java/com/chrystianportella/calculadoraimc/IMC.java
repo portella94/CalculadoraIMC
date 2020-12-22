@@ -8,7 +8,7 @@ public class IMC {
     public double Peso;
     public Calendar Data;
 
-    public double IMC() {
-        return (Peso / (Altura * Altura)) * 100;
+    public float IMC() {
+        return (float) (Peso / (Altura * Altura)) * 10000;
     }
 }
