@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 //dias[i] = s;
                 list.add(new BarEntry(
                         imc.Data.get(Calendar.DAY_OF_MONTH),
-                        (float) history.get(i).IMC
+                        (float) history.get(i).IMC()
                 ));
             }
             //xAxis.setValueFormatter(new IndexAxisValueFormatter(dias));
